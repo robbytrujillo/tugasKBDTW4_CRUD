@@ -89,13 +89,53 @@
 </form>
     <script>
         function fillMataKuliah() {
-            // Fungsi untuk mengisi field mata_kuliah berdasarkan kode_mk yang dipilih
-            // Implementasikan kode pengisian field mata_kuliah dari tabel mahasiswa
+            const kodeMk = document.getElementById('kode_mk').value;
+  const mataKuliahField = document.getElementById('mata_kuliah');
+
+  // Lakukan pengambilan data mata kuliah dari tabel mahasiswa menggunakan metode fetch atau AJAX
+  // Misalnya, menggunakan fetch:
+  fetch('get_mata_kuliah.php?kode_mk=' + kodeMk)
+    .then(response => response.json())
+    .then(data => {
+      // Periksa apakah data ditemukan
+      if (data.length > 0) {
+        // Ambil mata kuliah pertama dari hasil query
+        const mataKuliah = data[0].mata_kuliah;
+        // Isi field mata_kuliah dengan nilai yang ditemukan
+        mataKuliahField.value = mataKuliah;
+      } else {
+        // Jika tidak ada data, kosongkan field mata_kuliah
+        mataKuliahField.value = '';
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
         }
 
         function fillNama() {
-            // Fungsi untuk mengisi field nama berdasarkan nim yang dipilih
-            // Implementasikan kode pengisian field nama dari tabel mahasiswa
+            const nim = document.getElementById('nim').value;
+            const namaField = document.getElementById('nama');
+
+  // Lakukan pengambilan data nama dari tabel mahasiswa menggunakan metode fetch atau AJAX
+  // Misalnya, menggunakan fetch:
+  fetch('get_nama.php?nim=' + nim)
+    .then(response => response.json())
+    .then(data => {
+      // Periksa apakah data ditemukan
+      if (data.length > 0) {
+        // Ambil nama pertama dari hasil query
+        const nama = data[0].nama;
+        // Isi field nama dengan nilai yang ditemukan
+        namaField.value = nama;
+      } else {
+        // Jika tidak ada data, kosongkan field nama
+        namaField.value = '';
+      }
+    })
+    .catch(error => {
+      console.error('Error:', error);
+    });
         }
 
         function handleSubmit(event) {
