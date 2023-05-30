@@ -41,6 +41,9 @@
 
 
     <h2>Data Nilai Mahasiswa</h2>
+
+    <!-- Link "Input Nilai" -->
+    <a href="nilai/input_nilai.php">Input Nilai</a>
     <table>
         <tr>
             <th>NIM</th>
@@ -79,7 +82,7 @@
     </table>
 
     <h2>Cetak Laporan Nilai</h2>
-    <form action="laporan.php" method="POST">
+    <form action="report/laporan.php" method="POST">
         <label for="mata_kuliah">Mata Kuliah:</label>
         <select name="mata_kuliah" required>
             <?php
@@ -92,12 +95,14 @@
                 }
 
                 // Ambil data mata kuliah
-                $sql = "SELECT * FROM mahasiswa GROUP BY kode";
+                $sql = "SELECT DISTINCT kode_mk, mata_kuliah FROM mahasiswa";
                 $result = mysqli_query($conn, $sql);
 
                 // Tampilkan data ke dalam dropdown
                 while ($row = mysqli_fetch_assoc($result)) {
-                    echo "<option value='"['kode']."'>".$row['kode']." - ".$row['mata_kuliah']."</option>";
+                    $kode_mk = $row['kode_mk'];
+        $mata_kuliah = $row['mata_kuliah'];
+        echo "<option value='$kode_mk'>$kode_mk - $mata_kuliah</option>";
                 }
 
                             // Tutup koneksi

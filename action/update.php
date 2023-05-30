@@ -95,7 +95,7 @@ mysqli_close($conn);
         <input type="text" name="mata_kuliah" value="<?php echo $mata_kuliah; ?>" required><br>
         </div>
 
-        <button type="submit" value="Ubah">Ubah</button>
+        <button type="submit" name="update" value="Ubah">Ubah</button>
     </form>
 </div>
 </div>
