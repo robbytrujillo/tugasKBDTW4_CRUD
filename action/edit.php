@@ -15,7 +15,7 @@
     $mata_kuliah = $_POST['mata_kuliah'];
 
     // Query untuk memperbarui data di tabel
-    $sql = "UPDATE mahasiswa SET nim='$nim', nama='$nama', kode_mk='$kode_mk', mata_kuliah='$mata_kuliah' WHERE id=$id";
+    $sql = "SELECT * FROM mahasiswa WHERE nim='$nim', nama='$nama', kode_mk='$kode_mk', mata_kuliah='$mata_kuliah' WHERE id=$id";
     
     // Eksekusi query
     if (mysqli_query($conn, $sql)) {

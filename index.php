@@ -9,8 +9,8 @@
 <div class="card">
 <div class="card-header">
 <h1>Nilai Mahasiswa</h1>
-<center><h3>By : 2111601809 | <span style="color: darkorange">Robby Ilhamkusuma</span></h3></center>
-</div>
+<div class="card">
+<div class="card-header"></div>
 
 <div class="card-body">
 <form action="action/insert.php" method="POST">
